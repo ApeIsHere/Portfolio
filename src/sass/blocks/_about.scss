@@ -1,5 +1,16 @@
 .about {
     padding-top: 120px;
+    .title__section-title {
+        text-align: left;
+        padding-left: 12px;
+        &:before {
+            left: 0;
+            transform: translateX(0);
+        }
+    }
+    .title__section-subtitle {
+        text-align: left;
+    }
     &__wrapper {
         display: grid;
         grid-template-columns: 400px 670px;
