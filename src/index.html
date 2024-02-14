@@ -93,12 +93,12 @@
             </div>
             <nav>
                 <ul class="menu__list">
-                    <li class="menu__link"><a href="#">ПРО МЕНЯ</a></li>
-                    <li class="menu__link"><a href="#">МОЙ ОПЫТ</a></li>
-                    <li class="menu__link"><a href="#">МОИ НАВЫКИ</a></li>
-                    <li class="menu__link"><a href="#">МОИ РАБОТЫ</a></li>
-                    <li class="menu__link"><a href="#">ПРАЙС-ЛИСТ</a></li>
-                    <li class="menu__link"><a href="#">КОНТАКТЫ</a></li>
+                    <li class="menu__link"><a href="#about">ПРО МЕНЯ</a></li>
+                    <li class="menu__link"><a href="#resume">МОЙ ОПЫТ</a></li>
+                    <li class="menu__link"><a href="#skills">МОИ НАВЫКИ</a></li>
+                    <li class="menu__link"><a href="#portfolio">МОИ РАБОТЫ</a></li>
+                    <li class="menu__link"><a href="#price">ПРАЙС-ЛИСТ</a></li>
+                    <li class="menu__link"><a href="#contacts">КОНТАКТЫ</a></li>
                 </ul>
             </nav>
             <div class="menu__social">
@@ -144,13 +144,13 @@
             <div class="title title_fz16 promo__subtitle">Меня зовут Эффект Кофеевич</div>
             <h1 class="title title_fz48 promo__title ">Я web-разработчик из города Сан-Диего</h1>
             <div class="promo__btns">
-                <a href="#" class="promo__link btn">Портфолио</a>
-                <a href="#" class="promo__link btn btn_transp">Про меня</a>
+                <a href="#portfolio" class="promo__link btn">Портфолио</a>
+                <a href="#about" class="promo__link btn btn_transp">Про меня</a>
             </div>
         </div>
     </section>
 
-    <section class="about">
+    <section class="about" id="about">
         <div class="container">
             <div class="about__wrapper">
                 <div class="about__photo">
@@ -202,7 +202,7 @@
         </div>
     </section>
 
-    <section class="resume">
+    <section class="resume" id="resume">
         <div class="container">
             <h2 class="title title_fz16 title__section-title">Опыт</h2>
             <div class="title title_fz36 title__section-subtitle">Чем я буду полезен</div>
@@ -279,49 +279,49 @@
         </div>
     </section>
 
-    <section class="skills">
+    <section class="skills" id="skills">
         <div class="container">
             <h2 class="title title_fz16 title__section-title">Навыки</h2>
             <div class="title title_fz36 title__section-subtitle">Что я использую в работе</div>
             <div class="divider"></div>
 
             <div class="skills__wrapper">
-                <div class="skills__item">
+                <div class="skills__item skills__item-top">
                     <div class="skills__item-icon">
                         <img src="assets/icons/skills/html5.svg" alt="HTML5">
                     </div>
                     <div class="title title_fz14">HTML5</div>
                     <div class="skills__item-text">Именно он создает каркас вашего сайта или приложения, а пятая версия позволит мне создавать более SEO-оптимизированную структуру вашего продукта</div>
                 </div>
-                <div class="skills__item">
+                <div class="skills__item skills__item-top">
                     <div class="skills__item-icon">
                         <img src="assets/icons/skills/css3.svg" alt="CSS3">
                     </div>
                     <div class="title title_fz14">CSS3</div>
                     <div class="skills__item-text">Этот язык стилей позволяет мне создавать абсолютно любой внешний вид вашего сайта или приложения. Все ограничивается только вашей фантазией!</div>
                 </div>
-                <div class="skills__item">
+                <div class="skills__item skills__item-top">
                     <div class="skills__item-icon">
                         <img src="assets/icons/skills/js.svg" alt="JS">
                     </div>
                     <div class="title title_fz14">Java Script</div>
                     <div class="skills__item-text">Этот язык программирования позволяет оживить все что угодно: слайдеры, окна, подсказки, вкладки, получение данных от сервера и многое другое</div>
                 </div>
-                <div class="skills__item">
+                <div class="skills__item skills__item-bot">
                     <div class="skills__item-icon">
                         <img src="assets/icons/skills/react.svg" alt="React">
                     </div>
                     <div class="title title_fz14">React</div>
                     <div class="skills__item-text">Эта библиотека позволяет создавать web-приложения. Мы можем создать максимально интерактивный продукт именно под ваши цели</div>
                 </div>
-                <div class="skills__item">
+                <div class="skills__item skills__item-bot">
                     <div class="skills__item-icon">
                         <img src="assets/icons/skills/node.js.svg" alt="Node JS">
                     </div>
                     <div class="title title_fz14">Node JS</div>
                     <div class="skills__item-text">Эта платформа позволяет создавать бэкенд для вашего продукта - “мозги”, которые будут выполнять действия, которые пользователь не видит</div>
                 </div>
-                <div class="skills__item">
+                <div class="skills__item skills__item-bot">
                     <div class="skills__item-icon">
                         <img src="assets/icons/skills/mongo.db.svg" alt="Mongo.db">
                     </div>
@@ -377,7 +377,7 @@
         </div>
     </section>
 
-    <section class="portfolio">
+    <section class="portfolio" id="portfolio">
         <div class="container">
             <h2 class="title title_fz16 title__section-title">Портфолио</h2>
             <div class="title title_fz36 title__section-subtitle">Мои работы</div>
@@ -385,80 +385,112 @@
 
             <div class="portfolio__wrapper">
                 <a href="#" class="portfolio__item flip">
-                    <img class="front" src="assets/img/works/house-vop_front.jpg" alt="House_vop">
-                    <div class="back">
+                    <div class="front">
                         <div class="portfolio__item_text">
                             <div class="title title_fz36">House vop</div>
+                        </div>
+                        <img src="assets/img/works/house-vop_front.jpg" alt="House_vop">
+                    </div>
+                    <div class="back">
+                        <div class="portfolio__item_text">
                             <p>Buy an appartment in historical area</p>
                         </div>
                         <img src="assets/img/works/house-vop_back.jpg" alt="House_vop">
                     </div>
                 </a>
                 <a href="#" class="portfolio__item horizontal_1 flip">
-                    <img class="front" src="assets/img/works/mntn_h_front.jpg" alt="mntn">
-                    <div class="back">
+                    <div class="front">
                         <div class="portfolio__item_text">
                             <div class="title title_fz36">MNTN</div>
+                        </div>
+                        <img src="assets/img/works/mntn_h_front.jpg" alt="mntn">
+                    </div>
+                    <div class="back">
+                        <div class="portfolio__item_text">
                             <p>Be prepared for the Mountains and beyond!</p>
                         </div>
                         <img src="assets/img/works/mntn_h_back.jpg" alt="mntn">
                     </div>
                 </a>
                 <a href="#" class="portfolio__item vertical_1 flip">
-                    <img class="front" src="assets/img/works/plans.jpg" alt="plans">
-                    <div class="back">
+                    <div class="front">
                         <div class="portfolio__item_text">
                             <div class="title title_fz36">Title</div>
+                        </div>
+                        <img src="assets/img/works/plans.jpg" alt="plans">
+                    </div>
+                    <div class="back">
+                        <div class="portfolio__item_text">
                             <p>Some fancy text</p>
                         </div>
                         <img src="assets/img/works/plans.jpg" alt="plans">
                     </div>
                 </a>
                 <a href="#" class="portfolio__item flip">
-                    <img class="front" src="assets/img/works/pulse.jpg" alt="pulse">
-                    <div class="back">
+                    <div class="front">
                         <div class="portfolio__item_text">
                             <div class="title title_fz36">Title</div>
+                        </div>
+                        <img src="assets/img/works/pulse.jpg" alt="pulse">
+                    </div>
+                    <div class="back">
+                        <div class="portfolio__item_text">
                             <p>Some fancy text</p>
                         </div>
                         <img src="assets/img/works/pulse.jpg" alt="pulse">
                     </div>
                 </a>
                 <a href="#" class="portfolio__item vertical_2 flip">
-                    <img class="front" src="assets/img/works/mntn_v.jpg" alt="mntn">
-                    <div class="back">
+                    <div class="front">
                         <div class="portfolio__item_text">
                             <div class="title title_fz36">MNTN</div>
+                        </div>
+                        <img src="assets/img/works/mntn_v.jpg" alt="mntn">
+                    </div>
+                    <div class="back">
+                        <div class="portfolio__item_text">
                             <p>Be prepared for the Mountains and beyond!</p>
                         </div>
                         <img src="assets/img/works/mntn_v.jpg" alt="mntn">
                     </div>
                 </a>
                 <a href="#" class="portfolio__item flip">
-                    <img class="front" src="assets/img/works/bread.jpg" alt="bread">
-                    <div class="back">
+                    <div class="front">
                         <div class="portfolio__item_text">
                             <div class="title title_fz36">Title</div>
+                        </div>
+                        <img src="assets/img/works/bread.jpg" alt="bread">
+                    </div>
+                    <div class="back">
+                        <div class="portfolio__item_text">
                             <p>Some fancy text</p>
                         </div>
                         <img src="assets/img/works/bread.jpg" alt="bread">
                     </div>
                 </a>
                 <a href="#" class="portfolio__item flip">
-                    <img class="front" src="assets/img/works/mac.jpg" alt="bread">
-                    <div class="back">
+                    <div class="front">
                         <div class="portfolio__item_text">
                             <div class="title title_fz36">Title</div>
+                        </div>
+                        <img src="assets/img/works/ipad.jpg" alt="mac">
+                    </div>
+                    <div class="back">
+                        <div class="portfolio__item_text">
                             <p>Some fancy text</p>
                         </div>
-                        <img src="assets/img/works/mac.jpg" alt="bread">
+                        <img src="assets/img/works/mac.jpg" alt="mac">
                     </div>
                 </a>
                 <a href="#" class="portfolio__item horizontal_2 flip">
-                    <img class="front" src="assets/img/works/PC_h_front.jpg" alt="Make you PC">
-                    <div class="back">
+                    <div class="front">
                         <div class="portfolio__item_text">
                             <div class="title title_fz36">PC courses</div>
+                        </div>
+                        <img src="assets/img/works/PC_h_front.jpg" alt="Make you PC">
+                    </div>
+                    <div class="back">
+                        <div class="portfolio__item_text">
                             <p>Become certified specialist and make your dream PC</p>
                         </div>
                         <img src="assets/img/works/PC_h_back.jpg" alt="Make you PC">
@@ -468,7 +500,7 @@
         </div>
     </section>
 
-    <section class="price">
+    <section class="price" id="price">
         <div class="container">
             <h2 class="title title_fz16 title__section-title">Прайс-лист</h2>
             <div class="divider"></div>
@@ -509,7 +541,7 @@
     </section>
 
     
-    <section class="contacts">
+    <section class="contacts" id="contacts">
         <div class="container">
             <div class="contacts__wrapper">
                 <div class="contacts__photo">

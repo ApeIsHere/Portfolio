@@ -4,6 +4,10 @@
 @import 'base/variables';
 @import 'base/mixins';
 
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -35,4 +39,17 @@
 @import 'blocks/portfolio';
 @import 'blocks/price';
 @import 'blocks/contacts';
-@import 'blocks/media';
+
+@import 'blocks/sidepanel-media';
+@import 'blocks/promo-media';
+@import 'blocks/title-media';
+@import 'blocks/button-media';
+@import 'blocks/menu-media';
+@import 'blocks/about-media';
+@import 'blocks/resume-media';
+@import 'blocks/skills-media';
+@import 'blocks/portfolio-media';
+@import 'blocks/price-media';
+@import 'blocks/contacts-media';
+@import 'blocks/misc-media';
+

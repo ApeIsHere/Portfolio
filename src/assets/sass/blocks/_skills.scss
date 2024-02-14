@@ -1,11 +1,11 @@
 .skills {
+    overflow: hidden;
     padding-top: 120px;
 
     &__wrapper {
         padding: 60px 10px 120px 10px;
         display: flex;
-        // overflow-x: hidden;
-        width: calc(100% - 130px);
+        justify-content: center;
     }
 
     &__item {

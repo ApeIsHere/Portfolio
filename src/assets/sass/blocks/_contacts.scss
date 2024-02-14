@@ -33,7 +33,7 @@
     &__text, &__social {
         margin-top: 20px;
     }
-    &__link {
+    &__link:not(:last-child) {
         margin-right: 25px;
     }
     &__form {
