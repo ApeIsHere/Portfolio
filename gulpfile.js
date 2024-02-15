@@ -12,10 +12,10 @@ const pngquant = require('imagemin-pngquant');
 const htmlmin = require('gulp-htmlmin');
 
 const dist = "./dist/";
-// const dist = "C:/OSPanel/domains/house-vop";
+// const dist = "C:/OSPanel/domains/portfolio";
 
 gulp.task("copy-html", () => {
-    return gulp.src("./src/index.html")
+    return gulp.src("./src/**/*.html")
         .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest(dist))
         .pipe(browsersync.stream());

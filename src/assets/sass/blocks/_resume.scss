@@ -18,7 +18,7 @@
                 transform: translateY(-50%);
                 width: 15px;
                 height: 15px;
-                background-color: $main-color;
+                background-color: var(--main-color);
                 border-radius: 100%;
             }
         }
