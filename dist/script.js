@@ -90,27 +90,85 @@
 /*!************************!*\
   !*** ./src/js/main.js ***!
   \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _modules_hamburger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/hamburger */ "./src/js/modules/hamburger.js");
+/* harmony import */ var _modules_percentage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/percentage */ "./src/js/modules/percentage.js");
+
 
 window.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
+  Object(_modules_hamburger__WEBPACK_IMPORTED_MODULE_0__["default"])();
+  Object(_modules_percentage__WEBPACK_IMPORTED_MODULE_1__["default"])();
+});
+
+/***/ }),
+
+/***/ "./src/js/modules/hamburger.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/hamburger.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const hamburger = () => {
   const hamburger = document.querySelector('.hamburger'),
     menu = document.querySelector('.menu'),
+    menuBlock = menu.querySelector('.menu__block'),
     close = document.querySelector('.menu__close');
+  let isOpen = false;
+  const toggleMenu = () => {
+    menu.classList.toggle('active');
+    isOpen = !isOpen;
+  };
+  const closeMenu = () => {
+    menu.classList.remove('active');
+    isOpen = !isOpen;
+  };
+  document.addEventListener('click', e => {
+    if (isOpen && !menuBlock.contains(e.target) && !hamburger.contains(e.target)) {
+      closeMenu();
+    }
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      closeMenu();
+    }
+  });
   hamburger.addEventListener('click', () => {
-    menu.classList.add('active');
+    toggleMenu();
   });
   close.addEventListener('click', () => {
-    menu.classList.remove('active');
+    closeMenu();
   });
+};
+/* harmony default export */ __webpack_exports__["default"] = (hamburger);
+
+/***/ }),
+
+/***/ "./src/js/modules/percentage.js":
+/*!**************************************!*\
+  !*** ./src/js/modules/percentage.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const fillPercentBar = () => {
   const counters = document.querySelectorAll('.skills__progress__item-percent'),
     lines = document.querySelectorAll('.skills__progress__item__bar-fill');
   counters.forEach((item, i) => {
     lines[i].style.width = item.innerHTML;
   });
-});
+};
+/* harmony default export */ __webpack_exports__["default"] = (fillPercentBar);
 
 /***/ })
 
