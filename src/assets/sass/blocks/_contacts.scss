@@ -53,6 +53,12 @@
             font-size: 12px;
             margin-bottom: 0;
         }
+        #emailMessage {
+            font-size: 12px;
+            position: absolute;
+            top: 48px;
+            left: 10px;
+        }
     }
     &__triggers {
         grid-column: 1/3;

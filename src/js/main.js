@@ -1,4 +1,3 @@
-import checkEmailInputs from "./modules/checkEmailInputs";
 import forms from "./modules/forms";
 import hamburger from "./modules/hamburger";
 import fillPercentBar from "./modules/percentage";
@@ -9,6 +8,5 @@ window.addEventListener('DOMContentLoaded', () => {
     hamburger()
     scrollTop();
     fillPercentBar();
-    checkEmailInputs('[name="email"]');
     forms();
 });

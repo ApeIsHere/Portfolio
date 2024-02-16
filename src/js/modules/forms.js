@@ -14,6 +14,8 @@ const forms = () => {
         fail: 'assets/icons/forms/fail.png'
     };
 
+    let isEmailCorrect = false;
+
     const clearInputs = () => {
         inputs.forEach(input => input.value = '');
         textareas.forEach(textarea => textarea.value = '');
@@ -55,46 +57,69 @@ const forms = () => {
         parent.appendChild(img);
     };
 
+
+
     forms.forEach(form => {
         const button = form.querySelector('button'),
             statusMessage = form.querySelector('[data-status-message]'),
-            emailInput = form.querySelector('[name="email"]'),
+            emailInput = document.querySelector('[type="email"]'),
             initialButtonValue = button.innerHTML,
             initialStatusMessageValue = statusMessage.innerHTML;
 
+        // validating email before accepting it
+        const validateEmail = (email) => {
+            return email.match(
+                /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+        };
 
-            //Email Validation is not working
-        form.addEventListener('submit', (e) => {
-            if (!emailInput.dataset.emailValid) {
-                showBtnImg(button, message.fail, 'fail');
-                statusMessage.innerHTML = message.email;
+        const validate = () => {
+            const emailMessage = document.getElementById('emailMessage'),
+                email = emailInput.value;
+            emailMessage.textContent = '';
+
+            if (validateEmail(email)) {
+                emailMessage.textContent = email + ' корректный адрес.';
+                emailMessage.style.color = 'green';
+                isEmailCorrect = true;
+                button.removeAttribute('disabled');
             } else {
-                e.preventDefault();
-
-                const formData = new FormData(form);
-
-                showBtnImg(button, message.spinner, 'loading...');
-                statusMessage.innerHTML = message.loading;
-
-                postData(server, formData)
-                    .then(res => {
-                        showBtnImg(button, message.ok, 'ok');
-                        statusMessage.innerHTML = message.contact;
-                        console.log(res);
-                    })
-                    .catch((error) => {
-                        showBtnImg(button, message.fail, 'fail');
-                        statusMessage.innerHTML = message.failure;
-                        console.log(error.message);
-                    })
-                    .finally(() => {
-                        setTimeout(() => {
-                            clearInputs();
-                            button.innerHTML = initialButtonValue;
-                            statusMessage.innerHTML = initialStatusMessageValue;
-                        }, 3800);
-                    });
+                emailMessage.textContent = email + ' некорректный адрес.';
+                emailMessage.style.color = 'red';
+                isEmailCorrect = false;
+                button.setAttribute('disabled', 'true');
             }
+            return isEmailCorrect;
+        };
+        emailInput.addEventListener('input', validate);
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+
+            showBtnImg(button, message.spinner, 'loading...');
+            statusMessage.innerHTML = message.loading;
+
+            postData(server, formData)
+                .then(res => {
+                    showBtnImg(button, message.ok, 'ok');
+                    statusMessage.innerHTML = message.contact;
+                    console.log(res);
+                })
+                .catch((error) => {
+                    showBtnImg(button, message.fail, 'fail');
+                    statusMessage.innerHTML = message.failure;
+                    console.log(error.message);
+                })
+                .finally(() => {
+                    setTimeout(() => {
+                        clearInputs();
+                        button.innerHTML = initialButtonValue;
+                        statusMessage.innerHTML = initialStatusMessageValue;
+                    }, 3800);
+                });
+
         });
 
     });
