@@ -15,10 +15,6 @@ const forms = () => {
         ok: 'assets/icons/forms/ok.png',
         fail: 'assets/icons/forms/fail.png'
     };
-    
-    document.querySelector('[type="email"]').addEventListener('input', () => {
-        console.log(isEmailCorrect);
-    })
 
     const clearInputs = () => {
         inputs.forEach(input => input.value = '');
