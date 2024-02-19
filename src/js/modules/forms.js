@@ -1,3 +1,5 @@
+import validateEmail from "./validateEmail";
+
 const forms = () => {
     const forms = document.querySelectorAll('form'),
         inputs = document.querySelectorAll('input'),
@@ -13,8 +15,10 @@ const forms = () => {
         ok: 'assets/icons/forms/ok.png',
         fail: 'assets/icons/forms/fail.png'
     };
-
-    let isEmailCorrect = false;
+    
+    document.querySelector('[type="email"]').addEventListener('input', () => {
+        console.log(isEmailCorrect);
+    })
 
     const clearInputs = () => {
         inputs.forEach(input => input.value = '');
@@ -62,36 +66,10 @@ const forms = () => {
     forms.forEach(form => {
         const button = form.querySelector('button'),
             statusMessage = form.querySelector('[data-status-message]'),
-            emailInput = document.querySelector('[type="email"]'),
             initialButtonValue = button.innerHTML,
             initialStatusMessageValue = statusMessage.innerHTML;
 
-        // validating email before accepting it
-        const validateEmail = (email) => {
-            return email.match(
-                /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            );
-        };
-
-        const validate = () => {
-            const emailMessage = document.getElementById('emailMessage'),
-                email = emailInput.value;
-            emailMessage.textContent = '';
-
-            if (validateEmail(email)) {
-                emailMessage.textContent = email + ' корректный адрес.';
-                emailMessage.style.color = 'green';
-                isEmailCorrect = true;
-                button.removeAttribute('disabled');
-            } else {
-                emailMessage.textContent = email + ' некорректный адрес.';
-                emailMessage.style.color = 'red';
-                isEmailCorrect = false;
-                button.setAttribute('disabled', 'true');
-            }
-            return isEmailCorrect;
-        };
-        emailInput.addEventListener('input', validate);
+            validateEmail(button);
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();

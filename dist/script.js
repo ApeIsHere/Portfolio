@@ -99,6 +99,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_hamburger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/hamburger */ "./src/js/modules/hamburger.js");
 /* harmony import */ var _modules_percentage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/percentage */ "./src/js/modules/percentage.js");
 /* harmony import */ var _modules_scrollTop__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/scrollTop */ "./src/js/modules/scrollTop.js");
+/* harmony import */ var _modules_validateEmail__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/validateEmail */ "./src/js/modules/validateEmail.js");
+
 
 
 
@@ -123,6 +125,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _validateEmail__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./validateEmail */ "./src/js/modules/validateEmail.js");
+
 const forms = () => {
   const forms = document.querySelectorAll('form'),
     inputs = document.querySelectorAll('input'),
@@ -137,7 +141,9 @@ const forms = () => {
     ok: 'assets/icons/forms/ok.png',
     fail: 'assets/icons/forms/fail.png'
   };
-  let isEmailCorrect = false;
+  document.querySelector('[type="email"]').addEventListener('input', () => {
+    console.log(isEmailCorrect);
+  });
   const clearInputs = () => {
     inputs.forEach(input => input.value = '');
     textareas.forEach(textarea => textarea.value = '');
@@ -174,32 +180,9 @@ const forms = () => {
   forms.forEach(form => {
     const button = form.querySelector('button'),
       statusMessage = form.querySelector('[data-status-message]'),
-      emailInput = document.querySelector('[type="email"]'),
       initialButtonValue = button.innerHTML,
       initialStatusMessageValue = statusMessage.innerHTML;
-
-    // validating email before accepting it
-    const validateEmail = email => {
-      return email.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-    };
-    const validate = () => {
-      const emailMessage = document.getElementById('emailMessage'),
-        email = emailInput.value;
-      emailMessage.textContent = '';
-      if (validateEmail(email)) {
-        emailMessage.textContent = email + ' корректный адрес.';
-        emailMessage.style.color = 'green';
-        isEmailCorrect = true;
-        button.removeAttribute('disabled');
-      } else {
-        emailMessage.textContent = email + ' некорректный адрес.';
-        emailMessage.style.color = 'red';
-        isEmailCorrect = false;
-        button.setAttribute('disabled', 'true');
-      }
-      return isEmailCorrect;
-    };
-    emailInput.addEventListener('input', validate);
+    Object(_validateEmail__WEBPACK_IMPORTED_MODULE_0__["default"])(button);
     form.addEventListener('submit', e => {
       e.preventDefault();
       const formData = new FormData(form);
@@ -311,6 +294,44 @@ const scrollTop = () => {
   });
 };
 /* harmony default export */ __webpack_exports__["default"] = (scrollTop);
+
+/***/ }),
+
+/***/ "./src/js/modules/validateEmail.js":
+/*!*****************************************!*\
+  !*** ./src/js/modules/validateEmail.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const validateEmail = button => {
+  const emailInput = document.querySelector('[type="email"]');
+  let isEmailCorrect = false;
+  const validateEmail = email => {
+    return email.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+  };
+  const validate = () => {
+    const emailMessage = document.getElementById('emailMessage'),
+      email = emailInput.value;
+    emailMessage.textContent = '';
+    if (validateEmail(email)) {
+      emailMessage.textContent = email + ' корректный адрес.';
+      emailMessage.style.color = 'green';
+      isEmailCorrect = true;
+      button.removeAttribute('disabled');
+    } else {
+      emailMessage.textContent = email + ' некорректный адрес.';
+      emailMessage.style.color = 'red';
+      isEmailCorrect = false;
+      button.setAttribute('disabled', 'true');
+    }
+    return isEmailCorrect;
+  };
+  emailInput.addEventListener('input', validate);
+};
+/* harmony default export */ __webpack_exports__["default"] = (validateEmail);
 
 /***/ })
 
