@@ -1,36 +1,45 @@
 .btn {
-    height: 45px;
-    background: var(--main-color);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-    padding: 12px 25px;
+  height: 45px;
+  background: var(--accent-color);
+  color: var(--background-color_dark_2);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  padding: 12px 25px;
 
-    &_transp {
-        background: rgba(0, 0, 0, 0);
-        box-shadow: none;
-    }
+  &:hover {
+    filter: brightness(1.1);
+    color: var(--background-color_dark_2);
+  }
+
+  &_transp {
+    background: rgba(0, 0, 0, 0);
+    color: var(--accent-color);
+    box-shadow: none;
+    border: 2px solid var(--accent-color);
     &:hover {
-        filter: brightness(1.1);
+      background: var(--accent-color_01);
+      color: var(--accent-color);
     }
+  }
 }
 
 .toTop {
-    display: block;
-    width: 50px;
-    position: fixed;
-    right: 40px;
-    bottom: 40px;
-    visibility: hidden;
-    opacity: 0;
-    transition: all .6s;
+  display: block;
+  width: 50px;
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.6s;
 
-    &.show {
-        visibility: visible;
-        opacity: 1;
-    }
+  &.show {
+    visibility: visible;
+    opacity: 1;
+  }
 
-    svg {
-        &:hover {
-            filter:brightness(1.1);
-        }   
+  svg {
+    &:hover {
+      filter: brightness(1.1);
     }
+  }
 }

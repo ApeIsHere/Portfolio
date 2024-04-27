@@ -3,14 +3,9 @@
   position: relative;
   padding-top: 205px;
   &__title {
+    font-weight: 500;
     width: 535px;
     margin-top: 10px;
-  }
-  &__subtitle {
-    position: relative;
-    padding-left: 10px;
-    z-index: 1;
-    @include before_circle;
   }
   &__btns {
     margin-top: 25px;
@@ -20,12 +15,16 @@
     width: 270px;
   }
   &__link {
-    color: black;
     font-weight: bold;
+    border-radius: 6px;
+    align-content: center;
     &:hover {
-      color: #000;
       text-decoration: none;
     }
+  }
+  h1 > span {
+    color: var(--accent-color);
+    font-weight: bold;
   }
   &__parallax {
     position: relative;
@@ -33,6 +32,7 @@
     min-height: 100svh;
     display: grid;
     grid-template-areas: "stack";
+    box-shadow: 0px 5px 5px black;
     & > * {
       grid-area: stack;
       animation: parallax linear;
@@ -42,7 +42,8 @@
   &__foreground {
     position: absolute;
     inset: 0;
-    background: url("../img/foreground.png") no-repeat 60% / cover; /* Change to your foreground image */
+    background: url("../img/foreground_night.png") no-repeat 60% / cover; /* Change to your foreground image */
+    // background: url("../img/foreground.png") no-repeat 60% / cover; /* Change to your foreground image */
   }
   &__background {
     position: absolute;
@@ -50,6 +51,7 @@
     z-index: -1;
     background: url("../img/main_bg_3.jpg") no-repeat 60% / cover;
     --parallax-speed: 10;
+    filter: grayscale(100);
   }
 }
 
