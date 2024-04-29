@@ -42,14 +42,14 @@
   &__foreground {
     position: absolute;
     inset: 0;
-    background: url("../img/foreground_night.png") no-repeat 60% / cover; /* Change to your foreground image */
+    background: url("../img/foreground_night.png") no-repeat 50% / cover; /* Change to your foreground image */
     // background: url("../img/foreground.png") no-repeat 60% / cover; /* Change to your foreground image */
   }
   &__background {
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: url("../img/main_bg_3.jpg") no-repeat 60% / cover;
+    background: url("../img/main_bg_3.jpg") no-repeat 50% / cover;
     --parallax-speed: 10;
     filter: grayscale(100);
   }

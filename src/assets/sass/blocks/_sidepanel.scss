@@ -1,55 +1,25 @@
 .sidepanel {
-    position: fixed;
-    top: 230px;
-    left: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 340px;
-    z-index: 3;
+  position: fixed;
+  bottom: 50px;
+  right: 100px;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
 
-    &_divider {
-        width: 2px;
-        height: 70px;
-        background-color: #000;
-    }
-
-    &__text {
-        width: 25px;
-        height: 150px;
-        font-weight: 700;
-        font-size: 16px;
-
-        //Wrapped the text into span to give it transformation
-        span {
-            transform: rotate(-90deg) translate(-36%, -265%);
-            display: block;
-            width: 150px;
-        }
-    }
+  &_divider {
+    width: 2px;
+    height: 100px;
+    background-color: var(--accent-color);
+  }
 }
 
-.facebook {
-    &:hover {
-        svg path {
-            fill: #4c68d7
-        }
+.svg_fill {
+  &:hover {
+    svg path {
+      fill: var(--accent-color);
     }
-}
-
-.instagram {
-    &:hover {
-        svg path {
-            fill: #f2003c
-        }
-    }
-}
-
-.github {
-    &:hover {
-        svg path {
-            fill: #8a3ab9
-        }
-    }
+  }
 }
