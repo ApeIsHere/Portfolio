@@ -1,13 +1,13 @@
+import "../scss/style.scss";
+
 import forms from "./modules/forms";
 import hamburger from "./modules/hamburger";
-import fillPercentBar from "./modules/percentage";
 import scrollTop from "./modules/scrollTop";
-import validateEmail from "./modules/validateEmail";
+// import validateEmail from "./modules/validateEmail";s
 
-window.addEventListener('DOMContentLoaded', () => {
-    'use strict'
-    hamburger()
-    scrollTop();
-    fillPercentBar();
-    forms();
+window.addEventListener("DOMContentLoaded", () => {
+  "use strict";
+  hamburger();
+  scrollTop();
+  forms();
 });

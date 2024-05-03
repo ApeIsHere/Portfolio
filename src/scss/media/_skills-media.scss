@@ -1,0 +1,96 @@
+@media (max-width: 1440px) {
+}
+
+@media (max-width: 1200px) {
+  .skills {
+    &__item {
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .skills {
+    &__wrapper {
+      padding: 60px 0 120px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      row-gap: 10px;
+    }
+
+    &__item {
+      padding: 20px;
+      min-width: none;
+      max-width: 180px;
+      height: 210px;
+      // using :not(:first-child) to get the same specificity as in the main file and overwrite it
+      // reseting margin left
+      &:not(:first-child) {
+        margin-left: 0px;
+      }
+      &:not(:nth-child(1)):not(:nth-child(5)):not(:nth-child(9)) {
+        margin-left: -10px;
+      }
+      img {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      // turn off the main moving rule to set up the specific ones bellow
+      &:hover ~ .skills__item {
+        transform: none;
+      }
+
+      &-top {
+        &:hover ~ .skills__item-top {
+          transform: translateX(115px);
+        }
+      }
+      &-bot {
+        &:hover ~ .skills__item-bot {
+          transform: translateX(115px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .skills {
+    padding-top: 80px;
+
+    &__wrapper {
+      padding: 60px 0 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &__item {
+      flex-basis: unset;
+      width: min-content;
+      margin-left: 0 !important; //overriding higher specificity of :nth-child() selectors
+
+      &:not(:first-child) {
+        margin-top: -130px;
+      }
+
+      &:hover ~ .skills__item {
+        transform: translateY(100px);
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .skills {
+    padding-top: 70px;
+
+    .title__section-subtitle {
+      margin-top: 20px;
+      line-height: 36px;
+    }
+
+    &__wrapper {
+      padding: 60px 10px 40px;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+.promo {
+  min-height: 100svh;
+  position: relative;
+  padding-top: 205px;
+  &__title {
+    font-weight: 500;
+    width: 535px;
+    margin-top: 10px;
+  }
+  &__btns {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 270px;
+  }
+  &__link {
+    font-weight: bold;
+    border-radius: 6px;
+    align-content: center;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  h1 > span {
+    color: var(--accent-color);
+    font-weight: bold;
+  }
+  &__parallax {
+    position: relative;
+    // z-index: -1;
+    min-height: 100svh;
+    display: grid;
+    grid-template-areas: "stack";
+    box-shadow: 0px 5px 5px black;
+    & > * {
+      grid-area: stack;
+      animation: parallax linear;
+      animation-timeline: scroll();
+    }
+  }
+  &__foreground {
+    position: absolute;
+    inset: 0;
+    background: url("/images/Foreground_night.png") no-repeat 50% / cover; /* Change to your foreground image */
+    // background: url("../img/foreground.png") no-repeat 60% / cover; /* Change to your foreground image */
+  }
+  &__background {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: url("/images/main_bg_3.jpg") no-repeat 50% / cover;
+    --parallax-speed: 8;
+    filter: grayscale(100);
+  }
+}
+
+@keyframes parallax {
+  to {
+    transform: translateY(calc(var(--parallax-speed) * 200px));
+  }
+}
