@@ -8,7 +8,6 @@
   &__title {
     position: relative;
     padding-left: 12px;
-    @include before_circle;
   }
   &__text {
     color: var(--main-text-color);

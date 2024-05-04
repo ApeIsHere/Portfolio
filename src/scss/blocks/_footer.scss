@@ -1,0 +1,11 @@
+.footer {
+  padding-top: 80px;
+  height: 200px;
+  background-color: var(--background-color_dark_2);
+  .title {
+    font-size: 30px;
+    font-weight: normal;
+    text-align: center;
+    color: var(--accent-color);
+  }
+}
