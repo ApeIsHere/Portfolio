@@ -19,6 +19,7 @@
     justify-content: center;
     align-items: center;
     &-contact {
+      position: relative;
       cursor: pointer;
       color: var(--accent-color);
       width: 320px;
@@ -27,6 +28,35 @@
       border-radius: 6px;
       svg {
         margin-right: 10px;
+      }
+      .tooltip {
+        visibility: hidden;
+        position: absolute;
+        height: 30px;
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--background-color_dark_2);
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+        &:after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: var(--background-color_dark_2) transparent transparent transparent;
+        }
+      }
+      &:hover .tooltip {
+        visibility: visible;
+        opacity: 1;
       }
     }
   }
