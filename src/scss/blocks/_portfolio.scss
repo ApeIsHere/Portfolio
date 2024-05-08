@@ -39,14 +39,17 @@
       padding: 20px;
       color: white;
       position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
+      inset: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-end;
+      .title {
+        align-self: flex-start;
+      }
+      .title_fz20 {
+        font-weight: bold;
+      }
     }
   }
 
@@ -74,6 +77,20 @@
       top: 0px;
       left: 0px;
       transform: rotateY(-180deg);
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba($color: #000000, $alpha: 0.7);
+      }
+      ul {
+        margin: 0 10px;
+        list-style-position: inside;
+        &.two-columns {
+          columns: 2;
+          column-gap: 50px;
+        }
+      }
     }
 
     @media (hover: hover) {
